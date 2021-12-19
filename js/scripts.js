@@ -3,7 +3,6 @@ if (document.readyState == 'loading') {
 } else {
     ready()
 }
-
 function ready() {
     var removeCartItemButtons = document.getElementsByClassName('btn-danger')
     for (var i = 0; i < removeCartItemButtons.length; i++) {
@@ -22,7 +21,11 @@ function ready() {
         var button = addToCartButtons[i]
         button.addEventListener('click', addToCartClicked)
     }
-
+    // var addToCartButtons = document.getElementsByClassName('shop-item-button')
+    // for (var i = 0; i < addToCartButtons.length; i++) {
+    //     var button = addToCartButtons[i]
+    //     button.addEventListener('click', count)
+    // }
     document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
 }
 
@@ -101,3 +104,16 @@ function updateCartTotal() {
     total = Math.round(total * 100) / 100
     document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total
 }
+// Shoping Cart Icon Nr Counter
+var elNr = document.getElementById('nr');
+var cartnr = 5;
+ function counting() {
+   cartnr++;
+   elNr.textContent = cartnr;
+ }
+ function substract() {
+   cartnr--;
+   elNr.textContent = cartnr;
+ }
+ document.getElementsByClassName('shop-item-button').addEventListener("click", counting);
+ document.getElementsByClassName('btn-danger').addEventListener("click", substract);
